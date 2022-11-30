@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
+let hui="harry";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    {/* // this is a html in js ,this whole html is called jsx and js can be included in between in {}  */}
+     {/* /* class is writen by className */ }
+
+    {/* // this return can only return one tag */}
+    <nav>
+      <li>Home</li>
+      <li>about</li>
+      <li>contact</li>
+      <li>hui</li>
+      <h1>Hello {hui}</h1>
+    </nav>
+    <div className="container">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus optio obcaecati exercitationem soluta molestias, aut placeat perferendis! Ab, et tempora nulla error, vero pariatur maiores exercitationem, aut accusamus inventore repellendus.</p>
     </div>
+    </>
   );
 }
 
