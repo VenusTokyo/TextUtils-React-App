@@ -11,6 +11,9 @@ export default function TextForm(props) {
         console.log("LowerCase was clicked")
         setText(text.toLowerCase())
     }
+    const handleClearClick=()=>{
+        setText('')
+    }
     const handleItalics=()=>{
         console.log("LowerCase was clicked")
         setText(text.toLowerCase())
@@ -22,7 +25,18 @@ export default function TextForm(props) {
         // setText(text)
     }
     
-    
+    const handleCopyClick=()=>{
+        console.log("im copy")
+        var text=document.getElementById('MyBox')
+        text.select();
+        // text.setSelectionRange(0,9999)
+        navigator.clipboard.writeText(text.value)
+    }
+
+    const handleExtraSpace=()=>{
+        let newText =text.split(/[ ]+/)
+        setText(newText.join(" "))
+    }
     const handleOnChange=(event)=>{
         console.log("changed")
         setText(event.target.value)
@@ -34,12 +48,15 @@ export default function TextForm(props) {
             <h1>{props.heading} </h1>
             <div className="mb-3">
                 {/* <label for="MyBox" className="form-label">Example text area</label> */}
-                <textarea className="form-control" onChange={handleOnChange} value={text} id="MyBox" rows="10"></textarea>
+                <textarea className="form-control" onChange={handleOnChange} value={text} id="MyBox" rows="8"></textarea>
             </div>
             <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UPPERCASE</button>
             <button className="btn btn-primary mx-2" onClick={handleLowClick}>Convert to lowercase</button>
-            <button className="btn btn-primary mx-2" onClick={handleItalics}>Convert to <i>Italics</i></button>
-            <button className="btn btn-primary mx-2" onClick={handleBold}>Convert to <b>Bold</b></button>
+            <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear Text</button>
+            <button className="btn btn-primary mx-2" onClick={handleCopyClick}>Copy Text</button>
+            <button className="btn btn-primary mx-2" onClick={handleExtraSpace}>Remove Extra Spaces</button>
+            {/* <button className="btn btn-primary mx-2" onClick={handleItalics}>Convert to <i>Italics</i></button>
+            <button className="btn btn-primary mx-2" onClick={handleBold}>Convert to <b>Bold</b></button> */}
         </div>
         <div className="container my-3">
             <h2>Your Text summary</h2>
