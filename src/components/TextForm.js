@@ -44,11 +44,11 @@ export default function TextForm(props) {
     const [text, setText] = useState('');
     return (
         <> 
-        <div className='container'>
+        <div className='container' style={{color: props.mode==='dark'?'white':'black'}}>
             <h1>{props.heading} </h1>
             <div className="mb-3">
                 {/* <label for="MyBox" className="form-label">Example text area</label> */}
-                <textarea className="form-control" onChange={handleOnChange} value={text} id="MyBox" rows="8"></textarea>
+                <textarea className="form-control" onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#343a40':'white', color: props.mode==='dark'?'white':'black'}} value={text} id="MyBox" rows="8"></textarea>
             </div>
             <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UPPERCASE</button>
             <button className="btn btn-primary mx-2" onClick={handleLowClick}>Convert to lowercase</button>
@@ -58,7 +58,7 @@ export default function TextForm(props) {
             {/* <button className="btn btn-primary mx-2" onClick={handleItalics}>Convert to <i>Italics</i></button>
             <button className="btn btn-primary mx-2" onClick={handleBold}>Convert to <b>Bold</b></button> */}
         </div>
-        <div className="container my-3">
+        <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
             <h2>Your Text summary</h2>
             <p>{text.split(" ").length} Words and {text.length} characters</p>
             <p>{ 0.008*text.split(" ").length} Minutes Reading time</p>
