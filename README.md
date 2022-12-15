@@ -6,7 +6,7 @@ This is a simple appliction made with react which manipulates entered text,they 
 * Copy text
 * Remove Extra Spaces
 
-Check is Out here : (https://venustokyo.github.io/TextUtils-React-App/) :spakles:
+Check is Out here : https://venustokyo.github.io/TextUtils-React-App/ :sparkles:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
