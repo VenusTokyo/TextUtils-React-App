@@ -6,13 +6,19 @@ export default function TextForm(props) {
     const handleUpClick=()=>{
         console.log("UpperCase was clicked")
         setText(text.toUpperCase())
+        props.showAlert("Converted to UpperCase","success")
     }
     const handleLowClick=()=>{
         console.log("LowerCase was clicked")
         setText(text.toLowerCase())
+        props.showAlert("Converted to LowerCase","success")
+
     }
     const handleClearClick=()=>{
         setText('')
+
+        props.showAlert("Cleared","success")
+
     }
     const handleItalics=()=>{
         console.log("LowerCase was clicked")
@@ -31,11 +37,15 @@ export default function TextForm(props) {
         text.select();
         // text.setSelectionRange(0,9999)
         navigator.clipboard.writeText(text.value)
+        props.showAlert("Text copied to Clipboard","success")
+
     }
 
     const handleExtraSpace=()=>{
         let newText =text.split(/[ ]+/)
         setText(newText.join(" "))
+        props.showAlert("Removed Extra Spaces","success")
+
     }
     const handleOnChange=(event)=>{
         console.log("changed")
@@ -50,11 +60,11 @@ export default function TextForm(props) {
                 {/* <label for="MyBox" className="form-label">Example text area</label> */}
                 <textarea className="form-control" onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#343a40':'white', color: props.mode==='dark'?'white':'black'}} value={text} id="MyBox" rows="8"></textarea>
             </div>
-            <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UPPERCASE</button>
-            <button className="btn btn-primary mx-2" onClick={handleLowClick}>Convert to lowercase</button>
-            <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear Text</button>
-            <button className="btn btn-primary mx-2" onClick={handleCopyClick}>Copy Text</button>
-            <button className="btn btn-primary mx-2" onClick={handleExtraSpace}>Remove Extra Spaces</button>
+            <button className={`btn btn-${props.color} mx-2`} onClick={handleUpClick}>Convert to UPPERCASE</button>
+            <button className={`btn btn-${props.color} mx-2`} onClick={handleLowClick}>Convert to lowercase</button>
+            <button className={`btn btn-${props.color} mx-2`} onClick={handleClearClick}>Clear Text</button>
+            <button className={`btn btn-${props.color} mx-2`} onClick={handleCopyClick}>Copy Text</button>
+            <button className={`btn btn-${props.color} mx-2`} onClick={handleExtraSpace}>Remove Extra Spaces</button>
             {/* <button className="btn btn-primary mx-2" onClick={handleItalics}>Convert to <i>Italics</i></button>
             <button className="btn btn-primary mx-2" onClick={handleBold}>Convert to <b>Bold</b></button> */}
         </div>
