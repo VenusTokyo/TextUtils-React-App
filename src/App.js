@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
-import About from "./components/About";
+// import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom"
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom"
 
 function App() {
   const [mode, setMode] = useState('light') //whether dark mode is enabled or not
   const [alert, setAlert] = useState(null)
-  const [color, setColor] = useState('primary')
+  // const [color, setColor] = useState('primary')
 
   const showAlert = (msg, type) => {
     setAlert({
@@ -27,9 +27,9 @@ function App() {
       setAlert(null)
     }, 3000)
   }
-  const changeColor = (clr) => {
-    setColor(clr)
-  }
+  // const changeColor = (clr) => {
+  //   setColor(clr)
+  // }
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark')
@@ -48,22 +48,15 @@ function App() {
   return (
     <>
 
-      <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} changeColor={changeColor} />
+      <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
       <div className="container my-3">
-        <Router>
-
-        <Switch>
-          <Route exact path="/about">
-            <About />
-          </Route>
-
-          <Route exact path="/">
-            <TextForm showAlert={showAlert} heading="Enter the Text to Analyze" mode={mode} color={color} />
-          </Route>
-        </Switch>
         
-        </Router>
+           
+
+          
+            <TextForm showAlert={showAlert} heading="Enter the Text to Analyze" mode={mode}  />
+         
         {/* here my-3 is for margin in y axis */}
 
       </div>

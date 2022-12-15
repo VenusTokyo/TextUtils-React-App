@@ -20,16 +20,7 @@ export default function TextForm(props) {
         props.showAlert("Cleared","success")
 
     }
-    const handleItalics=()=>{
-        console.log("LowerCase was clicked")
-        setText(text.toLowerCase())
-    }
-    const textArea=document.querySelector('textarea')
-    const handleBold=()=>{
-        console.log("LowerCase was clicked")
-        // textArea.addtagName('b')
-        // setText(text)
-    }
+    
     
     const handleCopyClick=()=>{
         console.log("im copy")
@@ -60,11 +51,11 @@ export default function TextForm(props) {
                 {/* <label for="MyBox" className="form-label">Example text area</label> */}
                 <textarea className="form-control" onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#343a40':'white', color: props.mode==='dark'?'white':'black'}} value={text} id="MyBox" rows="8"></textarea>
             </div>
-            <button className={`btn btn-${props.color} mx-2`} onClick={handleUpClick}>Convert to UPPERCASE</button>
-            <button className={`btn btn-${props.color} mx-2`} onClick={handleLowClick}>Convert to lowercase</button>
-            <button className={`btn btn-${props.color} mx-2`} onClick={handleClearClick}>Clear Text</button>
-            <button className={`btn btn-${props.color} mx-2`} onClick={handleCopyClick}>Copy Text</button>
-            <button className={`btn btn-${props.color} mx-2`} onClick={handleExtraSpace}>Remove Extra Spaces</button>
+            <button className={`btn btn-primary mx-2`} onClick={handleUpClick}>Convert to UPPERCASE</button>
+            <button className={`btn btn-primary mx-2`} onClick={handleLowClick}>Convert to lowercase</button>
+            <button className={`btn btn-primary mx-2`} onClick={handleClearClick}>Clear Text</button>
+            <button className={`btn btn-primary mx-2`} onClick={handleCopyClick}>Copy Text</button>
+            <button className={`btn btn-primary mx-2`} onClick={handleExtraSpace}>Remove Extra Spaces</button>
             {/* <button className="btn btn-primary mx-2" onClick={handleItalics}>Convert to <i>Italics</i></button>
             <button className="btn btn-primary mx-2" onClick={handleBold}>Convert to <b>Bold</b></button> */}
         </div>
