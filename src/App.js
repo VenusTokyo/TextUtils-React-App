@@ -16,7 +16,7 @@ import Alert from "./components/Alert";
 function App() {
   const [mode, setMode] = useState('light') //whether dark mode is enabled or not
   const [alert, setAlert] = useState(null)
-  // const [color, setColor] = useState('primary')
+  const [color, setColor] = useState('primary')
 
   const showAlert = (msg, type) => {
     setAlert({
@@ -27,9 +27,9 @@ function App() {
       setAlert(null)
     }, 3000)
   }
-  // const changeColor = (clr) => {
-  //   setColor(clr)
-  // }
+  const changeColor = (clr) => {
+    setColor(clr)
+  }
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark')
@@ -48,14 +48,14 @@ function App() {
   return (
     <>
 
-      <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} />
+      <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} changeColor={changeColor}/>
       <Alert alert={alert} />
       <div className="container my-3">
 
 
 
 
-        <TextForm showAlert={showAlert} heading="Enter the Text to Analyze" mode={mode} />
+        <TextForm showAlert={showAlert} heading="Enter the Text to Analyze" mode={mode} color={color} />
 
         {/* here my-3 is for margin in y axis */}
 

@@ -52,18 +52,19 @@ export default function TextForm(props) {
                 {/* <label for="MyBox" className="form-label">Example text area</label> */}
                 <textarea className="form-control" onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#343a40':'white', color: props.mode==='dark'?'white':'black'}} value={text} id="MyBox" rows="8"></textarea>
             </div>
-            <button disabled={text.length===0} className={`btn btn-primary mx-2 my-1`} onClick={handleUpClick}>Convert to UPPERCASE</button>
-            <button disabled={text.length===0} className={`btn btn-primary mx-2 my-1`} onClick={handleLowClick}>Convert to lowercase</button>
-            <button disabled={text.length===0} className={`btn btn-primary mx-2 my-1`} onClick={handleClearClick}>Clear Text</button>
-            <button disabled={text.length===0} className={`btn btn-primary mx-2 my-1`} onClick={handleCopyClick}>Copy Text</button>
-            <button disabled={text.length===0} className={`btn btn-primary mx-2 my-1`} onClick={handleExtraSpace}>Remove Extra Spaces</button>
+            {/* onclick takes a function and not a function call */}
+            <button disabled={text.length===0} className={`btn btn-${props.color} mx-2 my-1`} onClick={handleUpClick}>Convert to UPPERCASE</button>
+            <button disabled={text.length===0} className={`btn btn-${props.color} mx-2 my-1`} onClick={handleLowClick}>Convert to lowercase</button>
+            <button disabled={text.length===0} className={`btn btn-${props.color} mx-2 my-1`} onClick={handleClearClick}>Clear Text</button>
+            <button disabled={text.length===0} className={`btn btn-${props.color} mx-2 my-1`} onClick={handleCopyClick}>Copy Text</button>
+            <button disabled={text.length===0} className={`btn btn-${props.color} mx-2 my-1`} onClick={handleExtraSpace}>Remove Extra Spaces</button>
             {/* <button className="btn btn-primary mx-2" onClick={handleItalics}>Convert to <i>Italics</i></button>
             <button className="btn btn-primary mx-2" onClick={handleBold}>Convert to <b>Bold</b></button> */}
         </div>
         <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
             <h2>Your Text summary</h2>
-            <p>{text.split(" ").filter((element)=>{return element.length!=0}).length} Words and {text.length} characters</p>
-            <p>{ 0.008*text.split(" ").filter((element)=>{return element.length!=0}).length} Minutes Reading time</p>
+            <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words and {text.length} characters</p>
+            <p>{ 0.008*text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes Reading time</p>
             <h2>Preview</h2>
             <p>{text}</p>
         </div>

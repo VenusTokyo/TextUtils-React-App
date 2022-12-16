@@ -23,6 +23,12 @@ export default function Navbar(props) {
                                 <a className="nav-link" href="/">{props.aboutText}</a>
                             </li>
                         </ul>
+                        <div className="d-flex">
+                            <div className="bg-primary rounded mx-2" onClick={()=>{props.changeColor('primary')}} style={{height: '20px',width: '20px'}}></div>
+                            <div className="bg-danger rounded mx-2" onClick={()=>{props.changeColor('danger')}} style={{height: '20px',width: '20px'}}></div>
+                            <div className="bg-success rounded mx-2" onClick={()=>{props.changeColor('success')}} style={{height: '20px',width: '20px'}}></div>
+                            <div className="bg-warning rounded mx-2" onClick={()=>{props.changeColor('warning')}} style={{height: '20px',width: '20px'}}></div>
+                        </div>
                         <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                             <input className="form-check-input" onChange={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
                             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark Mode</label>
