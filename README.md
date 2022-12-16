@@ -5,12 +5,14 @@ This is a simple appliction made with react which manipulates entered text,they 
 * Clear text
 * Copy text
 * Remove Extra Spaces
+* Word and Charecter counter
+* Shows the reading time of the text
 
 Check is Out here : https://venustokyo.github.io/TextUtils-React-App/ :sparkles:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## How to run in your System?
 
 In the project directory, you can run:
 
