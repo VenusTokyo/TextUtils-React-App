@@ -51,12 +51,12 @@ function App() {
       <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
       <div className="container my-3">
-        
-           
 
-          
-            <TextForm showAlert={showAlert} heading="Enter the Text to Analyze" mode={mode}  />
-         
+
+
+
+        <TextForm showAlert={showAlert} heading="Enter the Text to Analyze" mode={mode} />
+
         {/* here my-3 is for margin in y axis */}
 
       </div>
