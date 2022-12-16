@@ -4,12 +4,12 @@ import React, {useState} from 'react'
 export default function TextForm(props) {
 
     const handleUpClick=()=>{
-        console.log("UpperCase was clicked")
+        
         setText(text.toUpperCase())
         props.showAlert("Converted to UpperCase","success")
     }
     const handleLowClick=()=>{
-        console.log("LowerCase was clicked")
+        
         setText(text.toLowerCase())
         props.showAlert("Converted to LowerCase","success")
 
@@ -23,13 +23,12 @@ export default function TextForm(props) {
     
     
     const handleCopyClick=()=>{
-        console.log("im copy")
-        var text=document.getElementById('MyBox')
-        text.select();
-        // text.setSelectionRange(0,9999)
-        navigator.clipboard.writeText(text.value)
-        document.getSelection().removeAllRanges();
-        props.showAlert("Text copied to Clipboard","success")
+        
+       
+       
+        navigator.clipboard.writeText(text)
+       
+       props.showAlert("Text copied to Clipboard","success")
 
     }
 
@@ -40,7 +39,7 @@ export default function TextForm(props) {
 
     }
     const handleOnChange=(event)=>{
-        console.log("changed")
+       
         setText(event.target.value)
     }
     const [text, setText] = useState('');
@@ -63,8 +62,8 @@ export default function TextForm(props) {
         </div>
         <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
             <h2>Your Text summary</h2>
-            <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words and {text.length} characters</p>
-            <p>{ 0.008*text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes Reading time</p>
+            <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words and {text.length} characters</p>
+            <p>{ 0.008*text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Minutes Reading time</p>
             <h2>Preview</h2>
             <p>{text}</p>
         </div>

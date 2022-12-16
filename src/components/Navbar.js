@@ -17,13 +17,14 @@ export default function Navbar(props) {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/">Home</a>
+                                <a className="nav-link" aria-current="page" href="/">Home</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="/">{props.aboutText}</a>
                             </li>
                         </ul>
-                        <div className="d-flex">
+                        <div className={`d-flex text-${props.mode === 'light' ? 'dark' : 'light'}`}>
+                            Change Color
                             <div className="bg-primary rounded mx-2" onClick={()=>{props.changeColor('primary')}} style={{height: '20px',width: '20px'}}></div>
                             <div className="bg-danger rounded mx-2" onClick={()=>{props.changeColor('danger')}} style={{height: '20px',width: '20px'}}></div>
                             <div className="bg-success rounded mx-2" onClick={()=>{props.changeColor('success')}} style={{height: '20px',width: '20px'}}></div>
